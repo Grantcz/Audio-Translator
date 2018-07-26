@@ -15,13 +15,21 @@ export default {
 </script>
 
 <style>
-#app {
+html {
   background: #f7fbfc; /* Old browsers */
   background: rgb(255,94,97); /* Old browsers */
   background: -moz-linear-gradient(top, rgba(255,94,97,1) 0%, rgba(255,206,206,1) 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, rgba(255,94,97,1) 0%,rgba(255,206,206,1) 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, rgba(255,94,97,1) 0%,rgba(255,206,206,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5e61', endColorstr='#ffcece',GradientType=0 ); /* IE6-9 */
+}
+#app{
+  background: rgb(255,94,97);
+  margin-left: -15px;
+  margin-right: -15px;
+}
+body{
+  font-family:'OpenSans',cursive;
 }
 h1{
   font-family: 'Sigmar One', cursive;
