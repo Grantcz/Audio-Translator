@@ -1,21 +1,21 @@
 <template>
   <b-container fluid id="box">
-    <b-row class="justify-content-sm-center">
+    <b-row class="mx-auto">
       <b-col cols="12" sm="auto">
         <b-form v-on:submit.prevent="translate">  
 
         <div id="input">
-          <b-row class="justify-content-sm-center">
+          <b-row class="justify-content-md-center">
             <b-col cols="1" sm="auto">
               <img v-b-popover.hover.left="'Click to hear pronunciation!'" @click="translateSpeak" src="../assets/speaker.png">
             </b-col>
-            <b-col cols="3" sm="auto">  
+            <b-col cols="4">  
               <b-form-select v-model="FromLanguage" v-b-popover.hover="'Click to change languages!'">
                 <option v-for="(lang,index) in AvailableLanguages" :value="lang.code" :key="index"> {{ lang.text }} </option>
               </b-form-select>
             </b-col>
           </b-row>
-          <b-row class="justify-content-sm-center">
+          <b-row class="justify-content-md-center">
             <b-col cols="4" sm="auto">  
               <b-form-textarea v-model="Text" placeholder="Type in something here"></b-form-textarea>
             </b-col>  
@@ -23,7 +23,7 @@
         </div>
 
         <div id="output">
-          <b-row class="justify-content-sm-center">
+          <b-row class="justify-content-md-center">
             <b-col cols="1" sm="auto">
               <img v-b-popover.hover.left="'Click to hear pronunciation!'" @click="responseSpeak" src="../assets/speaker.png">
             </b-col>
@@ -33,7 +33,7 @@
               </b-form-select>
             </b-col>
           </b-row> 
-          <b-row class="justify-content-sm-center">
+          <b-row class="justify-content-md-center">
             <b-col cols="4" sm="auto"> 
               <b-form-textarea v-model="ResponseText" placeholder="Translation shows here" disabled> </b-form-textarea>        
             </b-col>
@@ -121,7 +121,7 @@ export default {
 <style scoped>
 #box {
   margin: auto;
-  max-width: 50%;
+  max-width: 30%;
   border: 1px solid white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: flex;
@@ -156,13 +156,13 @@ textarea {
 #submit {
   font-family: 'Sigmar One', cursive;
   padding: 1em;
-  background-color: rgba(255, 94, 97, 0.63);
+  background-color: #046F55;
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #submit:hover {
-  font-size: 113%;
-  background-color: rgba(255, 94, 97, 0.918);
-  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #045F96;
+  transition: 1s;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 </style>
