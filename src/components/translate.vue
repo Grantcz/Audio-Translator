@@ -1,11 +1,11 @@
 <template>
   <b-container fluid id="box">
-    <b-row class="mx-auto">
+    <b-row class="">
       <b-col cols="12" sm="auto">
         <b-form v-on:submit.prevent="translate">  
 
-        <div id="input">
-          <b-row class="justify-content-md-center">
+        <div id="input" fluid>
+          <b-row class="">
             <b-col cols="1" sm="auto">
               <img v-b-popover.hover.left="'Click to hear pronunciation!'" @click="translateSpeak" src="../assets/speaker.png">
             </b-col>
@@ -15,15 +15,15 @@
               </b-form-select>
             </b-col>
           </b-row>
-          <b-row class="justify-content-md-center">
+          <b-row class="">
             <b-col cols="4" sm="auto">  
               <b-form-textarea v-model="Text" placeholder="Type in something here"></b-form-textarea>
             </b-col>  
           </b-row>
         </div>
 
-        <div id="output">
-          <b-row class="justify-content-md-center">
+        <div id="output" fluid>
+          <b-row class="">
             <b-col cols="1" sm="auto">
               <img v-b-popover.hover.left="'Click to hear pronunciation!'" @click="responseSpeak" src="../assets/speaker.png">
             </b-col>
@@ -33,15 +33,15 @@
               </b-form-select>
             </b-col>
           </b-row> 
-          <b-row class="justify-content-md-center">
+          <b-row class="">
             <b-col cols="4" sm="auto"> 
               <b-form-textarea v-model="ResponseText" placeholder="Translation shows here" disabled> </b-form-textarea>        
             </b-col>
           </b-row>
         </div>
 
-        <div id="button">
-          <b-row class="justify-content-sm-center">
+        <div id="button" fluid>
+          <b-row class="">
             <b-col cols="6" sm="auto">
               <b-button type="submit" id="submit">Translate!</b-button>
             </b-col>
@@ -121,7 +121,7 @@ export default {
 <style scoped>
 #box {
   margin: auto;
-  max-width: 30%;
+  width: 345px;
   border: 1px solid white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: flex;
