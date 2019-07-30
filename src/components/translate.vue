@@ -1,56 +1,31 @@
 <template>
   <b-container fluid id="box">
-    <b-row class="">
-      <b-col cols="12" sm="auto">
         <b-form v-on:submit.prevent="translate">  
 
+          <!-- ENGLISH -->
         <div id="input" fluid>
-          <b-row class="">
-            <b-col cols="1" sm="auto">
-              <img v-b-popover.hover.left="'Click to hear pronunciation!'" @click="translateSpeak" src="../assets/speaker.png">
-            </b-col>
-            <b-col cols="4">  
-              <b-form-select v-model="FromLanguage" v-b-popover.hover="'Click to change languages!'">
-                <option v-for="(lang,index) in AvailableLanguages" :value="lang.code" :key="index"> {{ lang.text }} </option>
-              </b-form-select>
-            </b-col>
-          </b-row>
-          <b-row class="">
-            <b-col cols="4" sm="auto">  
-              <b-form-textarea v-model="Text" placeholder="Type in something here"></b-form-textarea>
-            </b-col>  
-          </b-row>
+            <img v-b-popover.hover.left="'Click to hear pronunciation!'" @click="translateSpeak" src="../assets/speaker.png">
+            <b-form-select id="bar" v-model="FromLanguage">
+              <option v-for="(lang,index) in AvailableLanguages" :value="lang.code" :key="index"> {{ lang.text }} </option>
+            </b-form-select> 
+            <b-form-textarea v-model="Text" placeholder="TYPE HERE"></b-form-textarea>
         </div>
 
+          <!-- ESPAÑOL -->
         <div id="output" fluid>
-          <b-row class="">
-            <b-col cols="1" sm="auto">
-              <img v-b-popover.hover.left="'Click to hear pronunciation!'" @click="responseSpeak" src="../assets/speaker.png">
-            </b-col>
-            <b-col cols="3" sm="auto"> 
-              <b-form-select v-model="ToLanguage" v-b-popover.hover="'Click to change languages!'">
-                <option v-for="(lang,index) in AvailableLanguages" :value="lang.code" :key="index"> {{ lang.text }} </option>
-              </b-form-select>
-            </b-col>
-          </b-row> 
-          <b-row class="">
-            <b-col cols="4" sm="auto"> 
-              <b-form-textarea v-model="ResponseText" placeholder="Translation shows here" disabled> </b-form-textarea>        
-            </b-col>
-          </b-row>
+          <img v-b-popover.hover.left="'Click to hear pronunciation!'" @click="responseSpeak" src="../assets/speaker.png">
+          <b-form-select id="bar" v-model="ToLanguage">
+            <option v-for="(lang,index) in AvailableLanguages" :value="lang.code" :key="index"> {{ lang.text }} </option>
+          </b-form-select>
+          <b-form-textarea v-model="ResponseText" placeholder="TRANSLATION HERE" disabled> </b-form-textarea>        
         </div>
 
-        <div id="button" fluid>
-          <b-row class="">
-            <b-col cols="6" sm="auto">
-              <b-button type="submit" id="submit">Translate!</b-button>
-            </b-col>
-          </b-row> 
+          <!-- BUTTON -->
+        <div id="button">
+          <b-button type="submit" id="submit">Translate!</b-button>
         </div>
 
         </b-form>   
-      </b-col>
-    </b-row>
   </b-container>
 
 </template>
@@ -121,7 +96,7 @@ export default {
 <style scoped>
 #box {
   margin: auto;
-  width: 345px;
+  max-width: 80%;
   border: 1px solid white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: flex;
@@ -133,9 +108,12 @@ export default {
   background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 }
+#input, #output{
+  margin: auto;
+}
 form{
   font-family: 'Open Sans', sans-serif;
-  min-width: 500px;
+  margin: auto;
   padding: 1em;
 } 
 img {
@@ -143,17 +121,25 @@ img {
   height: 2em;
   display: block-inline;
   padding: none;
+  margin-right: 1em;
+}
+#bar{
+  max-width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 select{
   padding-left: 1em;
   font-weight: 900;
 }
 textarea {
-  margin: 1em;
+  margin: 2em 0 2em 0;
   padding: 2em;
   border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #submit {
+  margin-left: 2.5em;
+  text-align: center;
   font-family: 'Sigmar One', cursive;
   padding: 1em;
   background-color: #046F55;
@@ -161,7 +147,7 @@ textarea {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #submit:hover {
-  background-color: #045F96;
+  background-color: #066066;
   transition: 1s;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
